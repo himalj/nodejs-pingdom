@@ -29,7 +29,7 @@ app.get("/", function(req, res) {
 	}
 	else{
 		res.setHeader('Content-Type', 'application/json');
-		res.end(JSON.stringify({ "status": "Down" }));
+		res.end(JSON.stringify({ "status": "Up" }));
 	}
 	
 
