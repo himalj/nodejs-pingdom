@@ -27,19 +27,24 @@ app.get("/", function(req, res) {
 	req.end();
 	
 	function callback() {
+		var status = "Down";
+		if(stat){
+			status = "Up";
+		}
 		res.setHeader('Content-Type', 'application/json');
-		res.end(JSON.stringify({ "status": stat }));
+		res.end(JSON.stringify({ "status": status }));
 	}
 	
 	
 });
 
 app.get("/static", function(req, res) {
-	
-	var stat = true;
-	res.setHeader('Content-Type', 'application/json');
-	res.end(JSON.stringify({ "status": stat }));
-	
+	var status = "Down";
+		if(stat){
+			status = "Up";
+		}
+		res.setHeader('Content-Type', 'application/json');
+		res.end(JSON.stringify({ "status": status }));
 	
 });
 
