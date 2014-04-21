@@ -40,11 +40,8 @@ app.get("/", function(req, res) {
 
 app.get("/static", function(req, res) {
 	var status = "Down";
-		if(stat){
-			status = "Up";
-		}
-		res.setHeader('Content-Type', 'application/json');
-		res.end(JSON.stringify({ "status": status }));
+	res.setHeader('Content-Type', 'application/json');
+	res.end(JSON.stringify({ "status": status }));
 	
 });
 
