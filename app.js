@@ -39,6 +39,15 @@ app.get("/", function(req, res) {
 	
 });
 
+app.get("/static", function(req, res) {
+	
+	var stat = true;
+	res.setHeader('Content-Type', 'application/json');
+	res.end(JSON.stringify({ "status": stat }));
+	
+	
+});
+
 // bind the app to listen for connections on a specified port
 var port = process.env.PORT || 3000;
 app.listen(port);
