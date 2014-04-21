@@ -1,0 +1,9 @@
+{
+ "name": "morning-caverns-1032",
+ "description": "Basic Express.js/morning-caverns-1032",
+ "version": "0.0.1",
+ "private": true,
+ "dependencies": {
+   "express": "3.x"
+  }
+}
