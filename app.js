@@ -9,30 +9,33 @@ app.get("/", function(req, res) {
 	  path: '/',
 	  method: 'GET'
 	};
-	var statCode = false;
-	/*var http = require('http');
-	var extReq = http.request(options, function(res) {
-		if(extReq.statusCode == "200"){	
-			statCode = true;
-			console.log(statCode);
-		}
+	
+	var stat = false;
+	var http = require('http');
+
+	var options = {
+	  host: 'www.bbc.com',
+	  path: '/'
+	};
+
+	callbackFunction = function(response) {	
+		response.on('data', function (statCode) {
+			if(response.statusCode == "200"){	
+				stat = true;
+			}
+		});
 		
-	});
-	extReq.on('error', function(e) {
-	  console.log('problem with request: ' + e.message);
-	});
-	extReq.end();
-	*/
-	if(statCode){
-		res.setHeader('Content-Type', 'application/json');
-		res.end(JSON.stringify({ "status": "Up" }));
-	}
-	else{
-		res.setHeader('Content-Type', 'application/json');
-		res.end(JSON.stringify({ "status": "Up" }));
+		response.on('end', callback);
 	}
 	
-
+	req = http.request(options, callbackFunction);
+	req.end();
+	
+	function callback() {
+		res.setHeader('Content-Type', 'application/json');
+		res.end(JSON.stringify({ "status": stat }));
+	}
+	
 	
 });
 
