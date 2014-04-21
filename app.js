@@ -13,11 +13,6 @@ app.get("/", function(req, res) {
 	var stat = false;
 	var http = require('http');
 
-	var options = {
-	  host: 'www.bbc.com',
-	  path: '/'
-	};
-
 	callbackFunction = function(response) {	
 		response.on('data', function (statCode) {
 			if(response.statusCode == "200"){	
