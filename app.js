@@ -10,7 +10,7 @@ app.get("/", function(req, res) {
 	  method: 'GET'
 	};
 	var statCode = false;
-	var http = require('http');
+	/*var http = require('http');
 	var extReq = http.request(options, function(res) {
 		if(extReq.statusCode == "200"){	
 			statCode = true;
@@ -22,9 +22,14 @@ app.get("/", function(req, res) {
 	  console.log('problem with request: ' + e.message);
 	});
 	extReq.end();
-	
+	*/
 	if(statCode){
-		res.send("status up");
+		res.setHeader('Content-Type', 'application/json');
+		res.end(JSON.stringify({ "status": "Up" }));
+	}
+	else{
+		res.setHeader('Content-Type', 'application/json');
+		res.end(JSON.stringify({ "status": "Down" }));
 	}
 	
 
