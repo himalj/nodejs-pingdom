@@ -4,7 +4,7 @@ var app = express();
 // Set up a URL route
 app.get("/", function(req, res) {
 	var options = {
-	  host: 'www.bbc.com',
+	  host: 'www.makeyourwidget.com',
 	  port: 80,
 	  path: '/',
 	  method: 'GET'
